@@ -1,0 +1,825 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.btn-submit{
+    color: #333;
+}
+
+.logo{
+color: white;
+}
+
+/* Навигация */
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    height: 70px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.burger-icon {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    position: relative;
+}
+
+.burger-icon::before,
+.burger-icon::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    left: 0;
+}
+
+.burger-icon::before {
+    top: -8px;
+}
+
+.burger-icon::after {
+    top: 8px;
+}
+
+.search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #f0933c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.search-container button:hover {
+    background-color: #e38a2b;
+}
+
+.auth-buttons a {
+    margin-left: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.auth-buttons a:hover {
+    color: #e38a2b;
+}
+
+/* Панель фильтра */
+.filter-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+    background-color: #0056b3;
+}
+
+.filter-panel {
+    position: fixed;
+    margin-top: 70px;
+    left: 0px;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: left 0.3s ease;
+}
+
+.filter-panel.open {
+    left: 0;
+}
+
+.filter-panel form {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-panel button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f0933c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filter-panel button:hover {
+    background-color: #e38a2b;
+}
+
+/* Игры */
+.game-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+    margin-left: 230px;
+    justify-content: left;
+}
+
+.game-card {
+    width: 250px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.game-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.game-info {
+    padding: 15px;
+}
+
+.game-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.game-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+.game-info a {
+    color: #f0933c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.game-info a:hover {
+    text-decoration: underline;
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .game-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Страница загрузки */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.tags-container {
+    width: auto; /* Ширина контейнера подстраивается под содержимое */
+    display: flex; /* Используем Flexbox */
+    flex-wrap: nowrap; /* Отключаем перенос строк */
+    align-items: center; /* Выравниваем элементы по центру вертикально */
+    gap: 10px; /* Расстояние между элементами */
+    overflow-x: auto; /* Включаем горизонтальную прокрутку, если элементы не помещаются */
+    white-space: nowrap; /* Предотвращаем перенос текста внутри элементов */
+}
+
+.tags-container label {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap; /* Текст внутри тега не переносится */
+}
+
+.tags-container label:hover {
+    background: #d6d8db;
+}
+
+/* Стили для скроллбара (опционально) */
+.tags-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.tags-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.tags-container::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}
+
+
+button {
+    display: inline-block;
+    background-color: #f0933c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #e38a2b;
+}
+
+.btn-back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #f0933c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-back:hover {
+    text-decoration: underline;
+}
+
+/* Страница игры */
+.game-detail-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.back-to-main {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.btn-back {
+    max-width: 150px;
+    align-items: left;
+    padding: 10px 15px;
+    color: #333;
+    background-color: #f0933c;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-back:hover {
+    background-color: #e38a2b;
+}
+.game-header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.preview-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-preview {
+    display: inline-block;
+    max-width: 400px;
+    height: 250px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+}
+
+.game-description p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.game-author {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.play-game {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-play {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #333;
+    background-color: #f0933c;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.btn-play:hover {
+    background-color: #e38a2b;
+}
+
+.game-rating {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.reviews-section {
+    margin-top: 30px;
+}
+
+.reviews-list {
+    list-style: none;
+    padding: 0;
+}
+
+.review-item {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.add-review {
+    margin-top: 20px;
+}
+
+.add-review form button {
+    padding: 10px 20px;
+    color: #333;
+    background-color: #f0933c;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-review form button:hover {
+    background-color: #e38a2b;
+}
+
+/* Профиль */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.profile-header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-header h1 {
+    margin: 0;
+    color: #fff;
+}
+
+.profile-header .btn {
+    color: #333;
+    text-decoration: none;
+    background-color: #f0933c;;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.profile-header .btn:hover {
+    background-color: #e38a2b;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-section {
+    text-align: center;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.prof-back-buttons{
+    margin-left: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.prof-back-buttons:hover {
+    color: #e38a2b;
+}
+
+.prof-back-buttons2{
+    margin-left: 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.prof-back-buttons2:hover {
+    color: #e38a2b;
+}
+
+.btn {
+    margin-left: 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #e38a2b;
+}
+
+.games-section {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы игры автоматически переходили на новую строку */
+    justify-content: left; /* Выравнивание по левому краю */
+    gap: 20px; /* Расстояние между карточками */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    padding: 10px;
+}
+
+.game-cards-containerr {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+    margin-left: -150px;
+    justify-content: left;
+}
+
+.games-section h3 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.game-cards {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: left;
+}
+
+.game-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+}
+
+.game-preview {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid #eee;
+}
+
+.game-title {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.game-author {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.game-card .btn {
+    background-color: #f0933c;
+    padding: 10px 20px;
+    display: inline-block;
+    margin: 10px auto;
+    transition: background-color 0.3s;
+}
+
+.game-card .btn:hover {
+    background-color: #e38a2b;
+}
+
+/*редактирование профиля*/
+.edit-profile-form {
+    max-width: 400px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+.edit-profile-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-profile-form form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.edit-profile-form form input[type="text"],
+.edit-profile-form form input[type="file"],
+.edit-profile-form form textarea,
+.edit-profile-form form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.edit-profile-form form button {
+    background-color: #f0933c;
+    color: #333;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-profile-form form button:hover {
+    background-color: #e38a2b;
+}
+
+.edit-ava{
+    justify-content: center;
+    align-items: center;
+}
+.avatar-container2 {
+    display: flex;
+    justify-content: center; /* Центрирует по горизонтали */
+    align-items: center; /* Центрирует по вертикали */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+/* Контейнер для страницы входа */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto; 
+    padding: 20px;
+    border: 1px solid #ddd; 
+    border-radius: 10px; 
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form input {
+    width: 100%; /* Одинаковая ширина */
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 15px; /* Отступ между полями */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF; /* Синий цвет кнопки */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+.signup-prompt {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.signup-prompt a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.signup-prompt a:hover {
+    text-decoration: underline;
+}
+
+.logout-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.logout-container {
+    text-align: center;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px 40px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.logout-container h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+.logout-container p {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.logout-container .logout-form {
+    margin-bottom: 10px;
+}
+
+.logout-container .btn {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn.btn-danger {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.btn.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn.btn-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.btn.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Стили для гиперссылок */
+a {
+    color: #000; /* Черный цвет */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s ease; /* Плавный переход */
+}
+
+a:hover {
+    color: #f0933c; /* Оранжевый цвет при наведении */
+}
+
+.login-form label {
+    display: flex;
+    align-items: center; /* Выравниваем текст и чекбокс по вертикали */
+    font-size: 14px;
+    color: #333;
+}
+
+.login-form label input[type="checkbox"] {
+    margin-right: 10px; /* Отступ между галочкой и текстом */
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="{% static 'css/main_styles.css' %}">
+</head>
+<body>
+    <header class="profile-header">
+        <h1>Профиль</h1>
+        <a href="{% url 'index' %}" class="prof-back-buttons">На главную</a>
+    </header>
+    <div class="profile-info">
+        <div class="avatar-section">
+            {% if user.avatar %}
+                <img src="{{ user.avatar.url }}" alt="Аватар" class="avatar">
+            {% else %}
+                <p>Аватарка отсутствует</p>
+            {% endif %}
+            <p class="username">Ник: {{ user.username }}</p>
+            
+            {% if user.id == request.user.id %}
+             <a href="{% url 'edit_profile' %}">Редактировать профиль</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="games-section">
+        {% if user.id == request.user.id %}
+        <h3>Ваши игры:</h3>
+        {% else %}
+        <h3>Игры пользователя:</h3>
+        {% endif %}
+        <div class="game-cards-containerr">
+            {% for game in user.games.all %}
+                <div class="game-card">
+                    <img src="{{ game.preview.url }}" alt="Превью" class="game-preview">
+                    <h4 class="game-title">{{ game.title }}</h4>
+                    <p class="game-author">Автор: Вы</p>
+                    <a href="{% url 'game_detail' game.id %}" class="btn">Перейти к игре</a>
+                </div>
+            {% empty %}
+                <p>Вы пока не загрузили игр.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

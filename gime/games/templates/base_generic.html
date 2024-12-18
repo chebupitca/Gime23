@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Мой сайт с инди-играми{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'account_login' %}">Войти</a></li>
+                <li><a href="{% url 'account_signup' %}">Зарегистрироваться</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Профиль</a></li>
+                    <li><a href="{% url 'logout' %}">Выход</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Этот блок будет заменяться контентом на других страницах -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Мой сайт с инди-играми</p>
+    </footer>
+</body>
+</html>

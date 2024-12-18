@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{{ game.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/main_styles.css' %}">
+</head>
+<body>
+    <div class="game-detail-container">
+        <!-- Превью игры и название -->
+        <div class="game-header">
+            <h1>{{ game.title }}</h1>
+            <div class="preview-container">
+                <img src="{{ game.preview.url }}" alt="Превью" class="game-preview">
+            </div>
+        </div>
+
+        <!-- Описание игры -->
+        <div class="game-description">
+            <p>{{ game.description }}</p>
+        </div>
+
+        <!-- Автор игры -->
+        <p>Автор: <a href="{% url 'user_profile' game.author.id %}">{{ game.author.username }}</a></p>
+
+
+        <!-- Ссылка на файл игры -->
+        <div class="play-game">
+            <a href="{{ game.game_file.url }}" class="btn-play">Скачать</a>
+        </div>
+
+        <!-- Рейтинг игры -->
+        <h2 class="game-rating">Рейтинг: {{ average_rating }} ⭐</h2>
+
+        <!-- Отзывы -->
+        <div class="reviews-section">
+            <h3>Отзывы</h3>
+            <ul class="reviews-list">
+                {% for review in reviews %}
+                    <li class="review-item">
+                        <strong><a href="{% url 'user_profile' review.author.id %}">{{ review.author.username }}</a></strong> ({{ review.rating }} ⭐): 
+                        {{ review.text }}
+                    </li>
+                {% empty %}
+                    <p>Отзывов пока нет.</p>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        <!-- Добавление отзыва -->
+        {% if user.is_authenticated %}
+            <div class="add-review">
+                <h3>Добавить отзыв</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn-submit">Отправить</button>
+                </form>
+            </div>
+        {% else %}
+            <p><a href="{% url 'account_login' %}">Войдите</a>, чтобы оставить отзыв.</p>
+        {% endif %}
+        <!-- Кнопка на главную -->
+    <div class="back-to-main">
+        <a href="{% url 'index' %}" class="btn-back">На главную</a>
+    </div>
+    </div>
+</body>
+</html>

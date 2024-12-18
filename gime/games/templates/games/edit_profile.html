@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование профиля</title>
+    <link rel="stylesheet" href="{% static 'css/main_styles.css' %}">
+</head>
+<body>
+    <header class="profile-header">
+        <h1>Редактировать профиль</h1>
+        <a href="{% url 'profile' %}" class="prof-back-buttons">Назад</a>
+    </header>
+    
+    <div class="edit-profile-form">
+        <div class="avatar-container2">
+            {% if user.avatar %}
+                <img src="{{ user.avatar.url }}" alt="Текущий аватар" class="avatar">
+            {% else %}
+                <p>Аватар отсутствует</p>
+            {% endif %}
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Сохранить</button>
+        </form>
+    </div>
+</body>
+</html>

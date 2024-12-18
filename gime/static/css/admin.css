@@ -1,0 +1,14 @@
+/* static/css/admin.css */
+body {
+    background-color: #f4f4f4;
+}
+
+.custom-admin-header {
+    background-color: #007bff;
+    padding: 20px;
+    color: white;
+}
+
+#content-main {
+    margin-top: 20px;
+}
